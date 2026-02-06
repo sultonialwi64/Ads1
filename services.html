@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Treatments | Double Bay Dental Collective</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* --- 1. LUXURY PALETTE (KONSISTEN) --- */
+        :root {
+            --primary: #0E4C58;
+            --primary-dark: #083038;
+            --gold: #C5A059;
+            --sand: #F9F9F7;
+            --text-body: #4A5568;
+            --white: #FFFFFF;
+            
+            --serif: 'Playfair Display', serif;
+            --sans: 'Manrope', sans-serif;
+        }
+
+        /* --- 2. GLOBAL STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--sand);
+            font-family: var(--sans);
+            color: var(--text-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--serif); color: var(--primary); font-weight: 400; }
+        a { text-decoration: none; transition: 0.3s; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* --- 3. NAVBAR (SAMA) --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 25px 0; background: var(--primary);
+        }
+        
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--serif); font-size: 1.6rem; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--gold); font-style: italic; }
+        
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        
+        .btn-nav { border: 1px solid var(--gold); color: var(--gold); padding: 10px 25px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-nav:hover { background: var(--gold); color: var(--white); }
+
+        /* --- 4. HEADER HALAMAN --- */
+        .page-header {
+            padding: 180px 0 80px;
+            text-align: center;
+            background-color: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .page-header p { max-width: 600px; margin: auto; font-size: 1.1rem; opacity: 0.9; }
+        .gold-line { width: 60px; height: 2px; background: var(--gold); margin: 30px auto 0; }
+
+        /* --- 5. SERVICES LAYOUT --- */
+        .services-section { padding: 100px 0; }
+        
+        /* Kategori Judul */
+        .category-title {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+        .category-title span { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 15px; }
+        .category-title h2 { font-size: 2.2rem; }
+
+        /* Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        /* Kartu Service */
+        .svc-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        .svc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(14, 76, 88, 0.08);
+            border-color: transparent;
+        }
+
+        /* Ikon Emas */
+        .svc-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .svc-title { font-size: 1.6rem; margin-bottom: 20px; color: var(--primary); }
+        .svc-desc { font-size: 0.95rem; color: #666; margin-bottom: 30px; line-height: 1.7; }
+
+        /* Link "Learn More" */
+        .svc-link {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--gold);
+        }
+        .svc-card:hover .svc-link { color: var(--gold); }
+
+        /* --- 6. FOOTER (SAMA) --- */
+        footer { background: var(--primary-dark); color: rgba(255,255,255,0.4); padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-logo { font-family: var(--serif); font-size: 1.8rem; color: var(--white); margin-bottom: 20px; display: block; }
+        .footer-col h4 { color: var(--white); font-family: var(--sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-col ul { list-style: none; } .footer-col li { margin-bottom: 15px; }
+        .footer-col a { color: inherit; text-decoration: none; transition: 0.3s; font-size: 0.9rem; } .footer-col a:hover { color: var(--gold); }
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; display: flex; justify-content: space-between; }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-wrapper">
+            <a href="desain-baru.html" class="logo">DOUBLE BAY <span>Dentists.</span></a>
+            <ul class="nav-links">
+                <li><a href="desain-baru.html">The Clinic</a></li>
+                <li><a href="team.html">Specialists</a></li>
+                <li><a href="services.html" style="color: var(--gold);">Treatments</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn-nav">Book Online</a>
+        </div>
+    </nav>
+
+    <header class="page-header fade-up">
+        <div class="container">
+            <h1>Curated Treatments</h1>
+            <p>We offer a full spectrum of dental care, blending advanced medical technology with bespoke aesthetics.</p>
+            <div class="gold-line"></div>
+        </div>
+    </header>
+
+    <section class="services-section container">
+
+        <div class="category-title fade-up">
+            <span>Aesthetic Excellence</span>
+            <h2>Cosmetic Dentistry</h2>
+        </div>
+        <div class="services-grid">
+            
+            <div class="svc-card fade-up">
+                <i class="ph ph-sparkle svc-icon"></i>
+                <h3 class="svc-title">Porcelain Veneers</h3>
+                <p class="svc-desc">Hand-crafted ceramic shells designed to perfect your smile's shape and color. The ultimate solution for a flawless, lasting transformation.</p>
+                <a href="#" class="svc-link">Learn More</a>
+            </div>
+
+            <div class="svc-card fade-up">
+                <i class="ph ph-sun svc-icon"></i>
+                <h3 class="svc-title">Bespoke Whitening</h3>
+                <p class="svc-desc">Professional in-chair or take-home treatments. We formulate the whitening intensity to match your sensitivity and desired shade.</p>
+                <a href="#" class="svc-link">Learn More</a>
+            </div>
+
+            <div class="svc-card fade-up">
+                <i class="ph ph-smiley-sticker svc-icon"></i> <h3 class="svc-title">Invisalign® Studio</h3>
+                <p class="svc-desc">Straighten your teeth discreetly. As Platinum Providers, we use digital scanning to map your smile's journey without metal braces.</p>
+                <a href="#" class="svc-link">Learn More</a>
+            </div>
+
+        </div>
+
+        <div class="category-title fade-up" style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 80px;">
+            <span>Foundation of Health</span>
+            <h2>Restorative & General</h2>
+        </div>
+        <div class="services-grid">
+            
+            <div class="svc-card fade-up">
+                <i class="ph ph-shield-check svc-icon"></i>
+                <h3 class="svc-title">Preventative Hygiene</h3>
+                <p class="svc-desc">Comprehensive cleaning and airflow therapy to maintain gum health. Prevention is the key to longevity.</p>
+                <a href="#" class="svc-link">Learn More</a>
+            </div>
+
+            <div class="svc-card fade-up">
+                <i class="ph ph-tooth svc-icon"></i>
+                <h3 class="svc-title">Dental Implants</h3>
+                <p class="svc-desc">The gold standard for replacing missing teeth. We use premium titanium implants that look, feel, and function like natural teeth.</p>
+                <a href="#" class="svc-link">Learn More</a>
+            </div>
+
+            <div class="svc-card fade-up">
+                <i class="ph ph-first-aid svc-icon"></i>
+                <h3 class="svc-title">Emergency Care</h3>
+                <p class="svc-desc">Same-day appointments for urgent needs. Whether it's a toothache or a chipped tooth, we prioritize your comfort.</p>
+                <a href="#" class="svc-link">Contact Us</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">DOUBLE BAY <span>Dentists.</span></a>
+                    <p style="line-height: 1.6; margin-bottom: 20px;">
+                        Suite 14/409-411 New South Head Rd,<br>
+                        Double Bay NSW 2028, Australia
+                    </p>
+                    <a href="tel:+61293634643" style="color: var(--white); font-size: 1.1rem;">(02) 9363 4643</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="#">Cosmetic Dentistry</a></li>
+                        <li><a href="#">Dental Implants</a></li>
+                        <li><a href="#">Invisalign</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Practice</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">The Team</a></li>
+                        <li><a href="#">Patient Info</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <ul>
+                        <li>Mon - Fri: 8am - 6pm</li>
+                        <li>Sat: 8am - 1pm</li>
+                        <li>Sun: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>© 2026 Double Bay Dentists. All Rights Reserved.</span>
+                <span>Designed with Care.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.8s ease-out";
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
